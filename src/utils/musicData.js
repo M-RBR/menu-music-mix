@@ -1,5 +1,35 @@
 import metadataCSV from "../assets/metadata_pre_1915.csv?raw";
 
+// PPNs in the vocal folder based on actual folder structure
+const vocalPPNs = [
+  "1869130650",
+  "1869139445",
+  "1869140095",
+  "1869141725",
+  "1870612396",
+  "1870612663",
+  "1870689097",
+  "1870691903",
+  "1870692586",
+  "1870692918",
+  "1870694074",
+  "1870694287",
+  "1870761863",
+  "1870762614",
+  "1914588142",
+  "1914898214",
+  "191490110X",
+  "1915476321",
+  "1915478553",
+  "1915478944",
+  "1915481643",
+  "1915493382",
+  "1915785243",
+  "1915787300",
+  "1916013554",
+  "1916013899",
+];
+
 export function parseMusicData() {
   const lines = metadataCSV.split("\n").filter((line) => line.trim());
   const songs = [];
@@ -29,15 +59,8 @@ export function parseMusicData() {
     const notesMatch = restOfLine.match(/Notes,([^,]*),SPL/);
     const notes = notesMatch ? notesMatch[1] : "";
 
-    const isVocal =
-      notes.toLowerCase().includes("vocal") ||
-      notes.toLowerCase().includes("soprano") ||
-      notes.toLowerCase().includes("tenor") ||
-      notes.toLowerCase().includes("duet") ||
-      notes.toLowerCase().includes("comic") ||
-      notes.toLowerCase().includes("gesang");
-
-    const category = isVocal ? "vocals" : "instrumental";
+    // Determine category based on actual folder structure
+    const category = vocalPPNs.includes(ppn) ? "vocal" : "instrumental";
 
     songs.push({
       ppn,
