@@ -1,0 +1,12 @@
+PPN: PPN1778974295
+PPN (analog): PPN1778903975
+PURL: https://resolver.staatsbibliothek-berlin.de/SBB00030FD700000000
+Titel: Menükarte
+Ort: Berlin
+Erscheinungsjahr: 1902-03-18
+Umfang: 3
+Bemerkungen: P_Drucke_Allg_bis1920
+Kategorie: Einblattdrucke,Historische Drucke
+Projekt: Menükarten digital
+Digitalisierer: Staatsbibliothek zu Berlin – Preußischer Kulturbesitz, Germany
+Lizenz: Public Domain Mark 1.0

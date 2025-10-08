@@ -1,0 +1,12 @@
+PPN: PPN1778978711
+PPN (analog): PPN177891182X
+PURL: https://resolver.staatsbibliothek-berlin.de/SBB0003160A00000000
+Titel: Menükarte
+Ort: Berlin
+Erscheinungsjahr: 1911-11-27
+Umfang: 5
+Bemerkungen: P_Drucke_Allg_bis1920
+Kategorie: Einblattdrucke,Historische Drucke
+Projekt: Menükarten digital
+Digitalisierer: Staatsbibliothek zu Berlin – Preußischer Kulturbesitz, Germany
+Lizenz: Public Domain Mark 1.0

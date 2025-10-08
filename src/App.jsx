@@ -1,5 +1,6 @@
 import "./App.css";
 import MusicPlayer from "./components/MusicPlayer";
+import MenuViewer from "./components/MenuViewer";
 
 function App() {
   return (
@@ -28,25 +29,15 @@ function App() {
               </h2>
             </div>
             <p className="text-gray-600 mb-4">
-              Explore 2,403 historical menu cards from the Berlin State Library,
+              Explore historical menu cards from the Berlin State Library,
               spanning from 1880 to 1913. Discover dining culture across Europe
               during the late 19th and early 20th centuries.
             </p>
-            <div className="bg-gray-50 rounded-lg p-4 mb-4">
-              <h3 className="font-medium text-gray-900 mb-2">
+            <div className="bg-gray-50 rounded-lg p-4">
+              <h3 className="font-medium text-gray-900 mb-4">
                 Collection Highlights
               </h3>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Royal and imperial courts</li>
-                <li>• Luxury hotels and cruise ships</li>
-                <li>• Private celebrations and public events</li>
-                <li>• Multilingual content (German, French, English)</li>
-              </ul>
-            </div>
-            <div className="text-center">
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                Browse Menu Cards
-              </button>
+              <MenuViewer />
             </div>
           </section>
 

@@ -1,0 +1,12 @@
+PPN: PPN1778976077
+PPN (analog): PPN1778908772
+PURL: https://resolver.staatsbibliothek-berlin.de/SBB000312D600000000
+Titel: Speisen- und Getränkekarte
+Ort: Berlin
+Erscheinungsjahr: 1903-01-22
+Umfang: 9
+Bemerkungen: P_Drucke_Allg_bis1920
+Kategorie: Einblattdrucke,Historische Drucke
+Projekt: Menükarten digital
+Digitalisierer: Staatsbibliothek zu Berlin – Preußischer Kulturbesitz, Germany
+Lizenz: Public Domain Mark 1.0

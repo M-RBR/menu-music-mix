@@ -1,0 +1,12 @@
+PPN: PPN1778980384
+PPN (analog): PPN1778913768
+PURL: https://resolver.staatsbibliothek-berlin.de/SBB000317C100000000
+Titel: Menükarte
+Ort: Berlin
+Erscheinungsjahr: 1913-01-10
+Umfang: 3
+Bemerkungen: P_Drucke_Allg_bis1920
+Kategorie: Einblattdrucke,Historische Drucke
+Projekt: Menükarten digital
+Digitalisierer: Staatsbibliothek zu Berlin – Preußischer Kulturbesitz, Germany
+Lizenz: Public Domain Mark 1.0
