@@ -52,8 +52,8 @@ export default function MusicPlayer() {
           onClick={() => setFilter("all")}
           className={`px-4 py-2 rounded-lg transition-colors ${
             filter === "all"
-              ? "bg-green-600 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              ? "bg-green-600 text-black"
+              : "bg-gray-200 text-black hover:bg-gray-300"
           }`}
         >
           All ({songs.length})
@@ -62,8 +62,8 @@ export default function MusicPlayer() {
           onClick={() => setFilter("vocal")}
           className={`px-4 py-2 rounded-lg transition-colors ${
             filter === "vocal"
-              ? "bg-green-600 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              ? "bg-green-600 text-black"
+              : "bg-gray-200 text-black hover:bg-gray-300"
           }`}
         >
           Vocal ({songs.filter((s) => s.category === "vocal").length})
@@ -72,8 +72,8 @@ export default function MusicPlayer() {
           onClick={() => setFilter("instrumental")}
           className={`px-4 py-2 rounded-lg transition-colors ${
             filter === "instrumental"
-              ? "bg-green-600 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              ? "bg-green-600 text-black"
+              : "bg-gray-200 text-black hover:bg-gray-300"
           }`}
         >
           Instrumental (
@@ -106,8 +106,8 @@ export default function MusicPlayer() {
                       onClick={() => playTrack(song, track)}
                       className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
                         isCurrentTrack && isPlaying
-                          ? "bg-green-600 text-white"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                          ? "bg-green-600 text-black"
+                          : "bg-gray-200 text-black hover:bg-gray-300"
                       }`}
                       title={`Play side ${track.side}`}
                     >

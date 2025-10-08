@@ -119,20 +119,20 @@ export default function MenuViewer() {
             <button
               onClick={handlePrevMenu}
               disabled={currentMenuIndex === 0}
-              className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 bg-gray-200 text-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               ← Previous
             </button>
             <button
               onClick={handleViewMenu}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="flex-1 px-4 py-2 bg-blue-600 text-black rounded-lg hover:bg-blue-700 transition-colors"
             >
               View All Pages
             </button>
             <button
               onClick={handleNextMenu}
               disabled={currentMenuIndex === displayedMenus.length - 1}
-              className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 bg-gray-200 text-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Next →
             </button>
@@ -174,14 +174,14 @@ export default function MenuViewer() {
             <button
               onClick={handlePrevPage}
               disabled={currentPageIndex === 0}
-              className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 bg-gray-200 text-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               ← Previous Page
             </button>
             <button
               onClick={handleNextPage}
               disabled={currentPageIndex === currentMenu.images.length - 1}
-              className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 bg-gray-200 text-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Next Page →
             </button>
@@ -190,7 +190,7 @@ export default function MenuViewer() {
           {/* Close Button */}
           <button
             onClick={handleCloseView}
-            className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="w-full px-4 py-2 bg-blue-600 text-black rounded-lg hover:bg-blue-700 transition-colors"
           >
             Close & Browse Other Menus
           </button>

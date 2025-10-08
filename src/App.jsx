@@ -28,15 +28,7 @@ function App() {
                 Historical Menu Cards
               </h2>
             </div>
-            <p className="text-gray-600 mb-4">
-              Explore historical menu cards from the Berlin State Library,
-              spanning from 1880 to 1913. Discover dining culture across Europe
-              during the late 19th and early 20th centuries.
-            </p>
             <div className="bg-gray-50 rounded-lg p-4">
-              <h3 className="font-medium text-gray-900 mb-4">
-                Collection Highlights
-              </h3>
               <MenuViewer />
             </div>
           </section>
@@ -49,15 +41,7 @@ function App() {
                 Echoes of Berlin: 78s
               </h2>
             </div>
-            <p className="text-gray-600 mb-4">
-              Experience early 20th-century Berlin through digitized shellac
-              records featuring music by Paul Lincke and other composers. Short,
-              catchy pieces that capture the musical culture of the era.
-            </p>
             <div className="bg-gray-50 rounded-lg p-4">
-              <h3 className="font-medium text-gray-900 mb-4">
-                Musical Highlights
-              </h3>
               <MusicPlayer />
             </div>
           </section>
