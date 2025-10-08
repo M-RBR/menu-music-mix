@@ -1,4 +1,5 @@
 import "./App.css";
+import MusicPlayer from "./components/MusicPlayer";
 
 function App() {
   return (
@@ -58,25 +59,15 @@ function App() {
               </h2>
             </div>
             <p className="text-gray-600 mb-4">
-              Experience early 20th-century Berlin through 110 digitized shellac
+              Experience early 20th-century Berlin through digitized shellac
               records featuring music by Paul Lincke and other composers. Short,
               catchy pieces that capture the musical culture of the era.
             </p>
-            <div className="bg-gray-50 rounded-lg p-4 mb-4">
-              <h3 className="font-medium text-gray-900 mb-2">
+            <div className="bg-gray-50 rounded-lg p-4">
+              <h3 className="font-medium text-gray-900 mb-4">
                 Musical Highlights
               </h3>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Paul Lincke operetta works</li>
-                <li>• Vocal and instrumental pieces</li>
-                <li>• Recordings from 1900s-1940s</li>
-                <li>• High-resolution label images</li>
-              </ul>
-            </div>
-            <div className="text-center">
-              <button className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
-                Explore Music
-              </button>
+              <MusicPlayer />
             </div>
           </section>
         </div>
