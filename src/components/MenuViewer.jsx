@@ -71,7 +71,7 @@ export default function MenuViewer() {
     <div>
       {/* Year Filter */}
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-gray-900 mb-2">
           Filter by Year
         </label>
         <select
@@ -103,10 +103,14 @@ export default function MenuViewer() {
 
           {/* Menu Info */}
           <div className="mb-4">
-            <h4 className="font-medium text-gray-900">{currentMenu.title}</h4>
+            <h4 className="font-medium text-gray-900">
+              Title:{" "}
+              <p className="font-medium text-gray-900 italic">
+                {currentMenu.title}
+              </p>
+            </h4>
             <p className="text-sm text-gray-600">
-              {currentMenu.location && `${currentMenu.location}, `}
-              {currentMenu.fullDate}
+              Date: {currentMenu.fullDate}
             </p>
             <p className="text-xs text-gray-500 mt-1">
               {currentMenu.images.length} page
@@ -127,7 +131,7 @@ export default function MenuViewer() {
               onClick={handleViewMenu}
               className="flex-1 px-4 py-2 bg-blue-600 text-black rounded-lg hover:bg-blue-700 transition-colors"
             >
-              View All Pages
+              View all pages of this menu
             </button>
             <button
               onClick={handleNextMenu}
@@ -139,7 +143,7 @@ export default function MenuViewer() {
           </div>
 
           {/* Menu Counter */}
-          <div className="text-center text-sm text-gray-500 mt-2">
+          <div className="text-center text-sm text-gray-500 mt-2 underline">
             Menu {currentMenuIndex + 1} of {displayedMenus.length}
           </div>
         </div>
