@@ -71,8 +71,8 @@ export default function MenuViewer() {
     <div>
       {/* Year Filter */}
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-900 mb-2">
-          Filter by Year
+        <label className="block text-base font-medium text-gray-900 mb-2">
+          Filter by Year:
         </label>
         <select
           value={selectedYear}
@@ -123,20 +123,20 @@ export default function MenuViewer() {
             <button
               onClick={handlePrevMenu}
               disabled={currentMenuIndex === 0}
-              className="flex-1 px-4 py-2 bg-gray-200 text-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               ← Previous
             </button>
             <button
               onClick={handleViewMenu}
-              className="flex-1 px-4 py-2 bg-blue-600 text-black rounded-lg hover:bg-blue-700 transition-colors"
+              className="flex-1 px-4 py-2 bg-blue-600 text-black border border-black rounded-lg hover:bg-blue-700 transition-colors"
             >
               View all pages of this menu
             </button>
             <button
               onClick={handleNextMenu}
               disabled={currentMenuIndex === displayedMenus.length - 1}
-              className="flex-1 px-4 py-2 bg-gray-200 text-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Next →
             </button>
@@ -163,10 +163,14 @@ export default function MenuViewer() {
 
           {/* Page Info */}
           <div className="mb-4">
-            <h4 className="font-medium text-gray-900">{currentMenu.title}</h4>
+            <h4 className="font-medium text-gray-900">
+              Title:{" "}
+              <p className="font-medium text-gray-900 italic">
+                {currentMenu.title}
+              </p>
+            </h4>
             <p className="text-sm text-gray-600">
-              {currentMenu.location && `${currentMenu.location}, `}
-              {currentMenu.fullDate}
+              Date: {currentMenu.fullDate}
             </p>
             <p className="text-xs text-gray-500 mt-1">
               Page {currentPageIndex + 1} of {currentMenu.images.length}
@@ -178,14 +182,14 @@ export default function MenuViewer() {
             <button
               onClick={handlePrevPage}
               disabled={currentPageIndex === 0}
-              className="flex-1 px-4 py-2 bg-gray-200 text-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               ← Previous Page
             </button>
             <button
               onClick={handleNextPage}
               disabled={currentPageIndex === currentMenu.images.length - 1}
-              className="flex-1 px-4 py-2 bg-gray-200 text-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Next Page →
             </button>
@@ -194,7 +198,7 @@ export default function MenuViewer() {
           {/* Close Button */}
           <button
             onClick={handleCloseView}
-            className="w-full px-4 py-2 bg-blue-600 text-black rounded-lg hover:bg-blue-700 transition-colors"
+            className="w-full px-4 py-2 bg-blue-600 text-black border border-black rounded-lg hover:bg-blue-700 transition-colors"
           >
             Close & Browse Other Menus
           </button>

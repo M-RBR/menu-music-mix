@@ -8,11 +8,14 @@ function App() {
       {/* Header */}
       <header className="bg-white shadow-2xl border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <h1 className="text-4xl font-bold text-gray-900 text-center italic">
+          <h1 className="text-4xl font-bold text-gray-900 text-center">
             MENU-MUSIC-MIX
           </h1>
-          <p className="text-center text-gray-600 mt-2 italic">
-            made in Berlin, 1900-1914
+          <p className="text-center text-gray-600 mt-2 text-lg italic">
+            Views of Berlin in the year 1900-1914 through two datasets
+          </p>
+          <p className="text-center text-gray-800 text-sm mt-3">
+            About this website
           </p>
         </div>
       </header>

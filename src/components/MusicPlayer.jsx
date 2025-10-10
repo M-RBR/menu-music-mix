@@ -53,7 +53,7 @@ export default function MusicPlayer() {
           className={`px-4 py-2 rounded-lg transition-colors ${
             filter === "all"
               ? "bg-green-600 text-black"
-              : "bg-gray-200 text-black hover:bg-gray-300"
+              : "bg-gray-200 text-black hover:bg-gray-300 border border-black"
           }`}
         >
           All ({songs.length})
@@ -63,7 +63,7 @@ export default function MusicPlayer() {
           className={`px-4 py-2 rounded-lg transition-colors ${
             filter === "vocal"
               ? "bg-green-600 text-black"
-              : "bg-gray-200 text-black hover:bg-gray-300"
+              : "bg-gray-200 text-black hover:bg-gray-300 border border-black"
           }`}
         >
           Vocal ({songs.filter((s) => s.category === "vocal").length})
@@ -73,7 +73,7 @@ export default function MusicPlayer() {
           className={`px-4 py-2 rounded-lg transition-colors ${
             filter === "instrumental"
               ? "bg-green-600 text-black"
-              : "bg-gray-200 text-black hover:bg-gray-300"
+              : "bg-gray-200 text-black hover:bg-gray-300 border border-black"
           }`}
         >
           Instrumental (
@@ -90,7 +90,9 @@ export default function MusicPlayer() {
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 <h4 className="font-medium text-gray-900">{song.title}</h4>
-                <p className="text-sm text-gray-600">{song.date}</p>
+                <p className="text-sm text-gray-600 italic">
+                  Date: {song.date}
+                </p>
                 {song.notes && (
                   <p className="text-xs text-gray-500 mt-1">{song.notes}</p>
                 )}
@@ -107,7 +109,7 @@ export default function MusicPlayer() {
                       className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
                         isCurrentTrack && isPlaying
                           ? "bg-green-600 text-black"
-                          : "bg-gray-200 text-black hover:bg-gray-300"
+                          : "bg-gray-200 text-black hover:bg-gray-300 border border-black"
                       }`}
                       title={`Play side ${track.side}`}
                     >
