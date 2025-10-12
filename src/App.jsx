@@ -12,10 +12,10 @@ function App() {
             MENU-MUSIC-MIX
           </h1>
           <p className="text-center text-gray-600 mt-2 text-lg italic">
-            Views of Berlin in the year 1900-1914 through two datasets
+            Views of Berlin in the years 1900-1914 through two datasets
           </p>
           <p className="text-center text-gray-800 text-sm mt-3">
-            About this website
+            about this website
           </p>
         </div>
       </header>

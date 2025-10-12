@@ -80,7 +80,7 @@ export default function MenuViewer() {
           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         >
           <option value="all">All Years ({allMenus.length} menus)</option>
-          {years.map((year) => (
+          {[...years].reverse().map((year) => (
             <option key={year} value={year}>
               {year} ({menusByYear[year].length} menu
               {menusByYear[year].length > 1 ? "s" : ""})
