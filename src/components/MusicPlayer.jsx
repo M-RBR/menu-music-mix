@@ -47,33 +47,33 @@ export default function MusicPlayer() {
 
   return (
     <div>
-      <div className="flex gap-2 mb-4">
+      <div className="flex-1 flex gap-4 mb-4 justify-center">
         <button
           onClick={() => setFilter("all")}
-          className={`px-4 py-2 rounded-lg transition-colors ${
+          className={`px-4 py-2 border border-black rounded-lg transition-colors ${
             filter === "all"
               ? "bg-green-600 text-black"
-              : "bg-gray-200 text-black hover:bg-gray-300 border border-black"
+              : "bg-gray-200 text-black hover:bg-gray-300"
           }`}
         >
           All ({songs.length})
         </button>
         <button
           onClick={() => setFilter("vocal")}
-          className={`px-4 py-2 rounded-lg transition-colors ${
+          className={`px-4 py-2 border border-black rounded-lg transition-colors ${
             filter === "vocal"
               ? "bg-green-600 text-black"
-              : "bg-gray-200 text-black hover:bg-gray-300 border border-black"
+              : "bg-gray-200 text-black hover:bg-gray-300"
           }`}
         >
           Vocal ({songs.filter((s) => s.category === "vocal").length})
         </button>
         <button
           onClick={() => setFilter("instrumental")}
-          className={`px-4 py-2 rounded-lg transition-colors ${
+          className={`px-4 py-2 border border-black rounded-lg transition-colors ${
             filter === "instrumental"
               ? "bg-green-600 text-black"
-              : "bg-gray-200 text-black hover:bg-gray-300 border border-black"
+              : "bg-gray-200 text-black hover:bg-gray-300"
           }`}
         >
           Instrumental (

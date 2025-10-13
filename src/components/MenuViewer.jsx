@@ -79,7 +79,7 @@ export default function MenuViewer() {
           onChange={(e) => setSelectedYear(e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         >
-          <option value="all">All Years ({allMenus.length} menus)</option>
+          <option value="all">all years ({allMenus.length} menus)</option>
           {[...years].reverse().map((year) => (
             <option key={year} value={year}>
               {year} ({menusByYear[year].length} menu
@@ -125,7 +125,7 @@ export default function MenuViewer() {
               disabled={currentMenuIndex === 0}
               className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              ← Previous
+              ← Previous menu
             </button>
             <button
               onClick={handleViewMenu}
@@ -138,7 +138,7 @@ export default function MenuViewer() {
               disabled={currentMenuIndex === displayedMenus.length - 1}
               className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              Next →
+              Next menu →
             </button>
           </div>
 
