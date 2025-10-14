@@ -1,4 +1,5 @@
 import { ArrowLeft } from "lucide-react";
+import ViewofBerlin1910 from "../assets/image/00000001.jpg";
 
 export default function About({ onBack }) {
   return (
@@ -172,6 +173,33 @@ export default function About({ onBack }) {
                 Bishnu Prashad Bhatta, Timothée Garnault, Tanmayee Mulay,
                 Angelina Riemann, Maxim Roozen, Ruth Sander, Media Younis
               </p>
+            </section>
+
+            <section>
+              {/* Centered image */}
+              <div className="flex justify-center mb-4">
+                <img
+                  src={ViewofBerlin1910}
+                  alt="Historical view of Berlin from 1910"
+                  className="rounded-lg shadow-md max-w-full h-auto"
+                />
+              </div>
+
+              {/* Image description and link */}
+              <p className="text-gray-700 leading-relaxed text-center mb-3">
+                View of Berlin in 1910 from another data set of the Berlin State
+                Library.
+              </p>
+              <div className="text-center">
+                <a
+                  href="https://lab.sbb.berlin/views-of-berlin/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline text-sm italic"
+                >
+                  Source: Views of Berlin
+                </a>
+              </div>
             </section>
 
             {/* Back Button */}
