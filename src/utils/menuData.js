@@ -4,8 +4,8 @@ const metadataFiles = import.meta.glob(
   { eager: true, query: "?raw", import: "default" }
 );
 
-// Import all .tif files
-const imageFiles = import.meta.glob("../assets/Historical Menus/*/*.tif", {
+// Import all .jpg files
+const imageFiles = import.meta.glob("../assets/Historical Menus/*/*.jpg", {
   eager: true,
   query: "?url",
   import: "default",
@@ -40,7 +40,7 @@ export function parseMenuData() {
     const images = [];
     for (const [imgPath, imgUrl] of Object.entries(imageFiles)) {
       if (imgPath.includes(ppn)) {
-        const fileMatch = imgPath.match(/(\d{8})\.tif/);
+        const fileMatch = imgPath.match(/(\d{8})\.jpg/);
         if (fileMatch) {
           images.push({
             filename: fileMatch[0],

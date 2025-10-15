@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { parseMenuData, getMenusByYear, getYears } from "../utils/menuData";
-import TifImage from "./TifImage";
 
 export default function MenuViewer() {
   const [allMenus] = useState(() => parseMenuData());
@@ -79,7 +78,7 @@ export default function MenuViewer() {
           onChange={(e) => setSelectedYear(e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         >
-          <option value="all">all years ({allMenus.length} menus)</option>
+          <option value="all">All years ({allMenus.length} menus)</option>
           {[...years].reverse().map((year) => (
             <option key={year} value={year}>
               {year} ({menusByYear[year].length} menu
@@ -94,18 +93,18 @@ export default function MenuViewer() {
         <div>
           {/* Menu Preview */}
           <div className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden mb-4 h-64">
-            <TifImage
+            <img
               src={currentMenu.images[0].url}
               alt={`${currentMenu.title} - First page`}
-              className="w-full h-full bg-gray-50"
+              className="w-full h-full object-contain bg-gray-50"
             />
           </div>
 
           {/* Menu Info */}
           <div className="mb-4">
-            <h4 className="font-medium text-gray-900">
+            <h4 className="flex justify-center font-medium text-gray-900 ">
               Title:{" "}
-              <p className="font-medium text-gray-900 italic">
+              <p className="font-medium text-gray-900 italic ml-2">
                 {currentMenu.title}
               </p>
             </h4>
@@ -125,7 +124,7 @@ export default function MenuViewer() {
               disabled={currentMenuIndex === 0}
               className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              ← Previous menu
+              ← Back
             </button>
             <button
               onClick={handleViewMenu}
@@ -154,10 +153,10 @@ export default function MenuViewer() {
         <div>
           {/* Full Page View */}
           <div className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden mb-4 h-96">
-            <TifImage
+            <img
               src={currentMenu.images[currentPageIndex].url}
               alt={`${currentMenu.title} - Page ${currentPageIndex + 1}`}
-              className="w-full h-full bg-gray-50"
+              className="w-full h-full object-contain bg-gray-50"
             />
           </div>
 

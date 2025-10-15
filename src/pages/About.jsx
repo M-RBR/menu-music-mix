@@ -65,7 +65,7 @@ export default function About({ onBack }) {
 
             <section>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Historical Menu Cards
+                Dataset 1: Historical Menu Cards
               </h3>
               <p className="text-gray-700 leading-relaxed mb-3">
                 The menu card collection features digitized historical menus
@@ -96,7 +96,7 @@ export default function About({ onBack }) {
 
             <section>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Echoes of Berlin: 78s
+                Dataset 2: Echoes of Berlin: 78s
               </h3>
               <p className="text-gray-700 leading-relaxed mb-3">
                 The music collection presents 110 digitized shellac records
@@ -187,19 +187,17 @@ export default function About({ onBack }) {
 
               {/* Image description and link */}
               <p className="text-gray-700 leading-relaxed text-center mb-3">
-                View of Berlin in 1910 from another data set of the Berlin State
-                Library.
-              </p>
-              <div className="text-center">
+                View of Berlin in 1910 (from the dataset{" "}
                 <a
                   href="https://lab.sbb.berlin/views-of-berlin/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline text-sm italic"
+                  className="text-blue-600 hover:underline italic"
                 >
-                  Source: Views of Berlin
+                  Views of Berlin
                 </a>
-              </div>
+                )
+              </p>
             </section>
 
             {/* Back Button */}
