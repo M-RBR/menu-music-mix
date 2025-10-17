@@ -1,5 +1,12 @@
 import metadataCSV from "../assets/metadata_pre_1915.csv?raw";
 
+// Import all MP3 files using Vite's import.meta.glob
+const mp3Files = import.meta.glob("../assets/mp3/**/*.mp3", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
 // PPNs in the vocal folder based on actual folder structure
 const vocalPPNs = [
   "1869130650",
@@ -62,24 +69,34 @@ export function parseMusicData() {
     // Determine category based on actual folder structure
     const category = vocalPPNs.includes(ppn) ? "vocal" : "instrumental";
 
-    songs.push({
-      ppn,
-      title: title || "Untitled",
-      composer,
-      date,
-      category,
-      notes,
-      tracks: [
-        {
-          side: "A",
-          url: `/src/assets/mp3/${category}/${ppn}/00000003.mp3`,
-        },
-        {
-          side: "B",
-          url: `/src/assets/mp3/${category}/${ppn}/00000004.mp3`,
-        },
-      ],
-    });
+    // Find the MP3 files for this song
+    const sideAPath = `../assets/mp3/${category}/${ppn}/00000003.mp3`;
+    const sideBPath = `../assets/mp3/${category}/${ppn}/00000004.mp3`;
+
+    const sideAUrl = mp3Files[sideAPath];
+    const sideBUrl = mp3Files[sideBPath];
+
+    // Only add songs that have at least one valid MP3 file
+    if (sideAUrl || sideBUrl) {
+      songs.push({
+        ppn,
+        title: title || "Untitled",
+        composer,
+        date,
+        category,
+        notes,
+        tracks: [
+          {
+            side: "A",
+            url: sideAUrl || "",
+          },
+          {
+            side: "B",
+            url: sideBUrl || "",
+          },
+        ].filter((track) => track.url), // Remove tracks without valid URLs
+      });
+    }
   }
 
   return songs;
