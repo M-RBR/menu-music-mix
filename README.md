@@ -1,16 +1,259 @@
-# React + Vite
+# Menu-Music-Mix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React web application that presents two interconnected datasets from the Berlin State Library: historical menu cards and early 20th-century shellac music recordings. Built during the culture.explore(data) hackathon at the Staatsbibliothek zu Berlin.
 
-Currently, two official plugins are available:
+🔗 **Live Demo**: [Deployed on Vercel]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## React Compiler
+- **Frontend Framework**: React 19.1.1
+- **Build Tool**: Vite 7.1.7
+- **Styling**: TailwindCSS 4.1.14
+- **Image Processing**: Sharp (for TIF to JPG conversion)
+- **Icons**: Lucide React
+- **Deployment**: Vercel
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Structure
 
-## Expanding the ESLint configuration
+```
+src/
+├── assets/
+│   ├── Historical Menus/    # Menu card images (JPG) and metadata
+│   ├── mp3/                  # Audio files (vocal/instrumental)
+│   └── metadata_pre_1915.csv # Music metadata
+├── components/
+│   ├── MenuViewer.jsx        # Menu card browser with year filtering
+│   └── MusicPlayer.jsx       # Audio player with category filtering
+├── pages/
+│   ├── Home.jsx              # Main application page
+│   └── About.jsx             # Project information and credits
+├── utils/
+│   ├── menuData.js           # Menu data parsing and organization
+│   └── musicData.js          # Music metadata parsing and MP3 imports
+└── App.jsx                   # Main app with page routing
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Key Features
+
+### Historical Menu Cards
+
+- **2,403 digitized menu cards** from Berlin State Library's Menükarten-Sammlung
+- Browse by year with dropdown filtering
+- Two-mode viewing:
+  - **Browse mode**: Preview first page, navigate between menus
+  - **View mode**: Full page-by-page navigation for each menu
+- Chronological navigation with Previous/Next controls
+- Metadata display: title, date, location, page count
+
+### Music Collection
+
+- **35 shellac recordings** (70 sides) from 1900-1914
+- Categorized as vocal (26) or instrumental (8)
+- Dual-sided playback (Side A & B) mimicking physical records
+- Filter by category (All/Vocal/Instrumental)
+- Metadata display: title, composer, date, performance notes
+- Active track indication with play/pause controls
+
+## Technical Highlights
+
+### Image Processing: TIF to JPG Conversion
+
+**Challenge**: Historical menu scans were provided as `.tif` files, which have poor browser support.
+
+**Solution**: Pre-build conversion using Sharp library
+
+```bash
+npm install sharp --save-dev
+node convert-tif-to-jpg.js  # Batch converted 213 TIF files to JPG
+```
+
+**Benefits**:
+
+- Universal browser support (JPG)
+- Smaller file sizes (~90% quality with MozJPEG)
+- Faster loading times
+- No client-side decoding overhead
+
+**Implementation**: Updated `menuData.js` to use `import.meta.glob` for JPG files:
+
+```javascript
+const imageFiles = import.meta.glob("../assets/Historical Menus/*/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+```
+
+### Audio File Handling: Development vs Production
+
+**Challenge**: MP3 files worked locally but failed on Vercel deployment with error:
+
+```
+NotSupportedError: Failed to load because no supported source was found
+```
+
+**Root Cause**: Hardcoded paths (`/src/assets/mp3/...`) don't exist in production builds.
+
+**Solution**: Use Vite's `import.meta.glob` for proper asset bundling:
+
+```javascript
+const mp3Files = import.meta.glob("../assets/mp3/**/*.mp3", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+```
+
+**How it works**:
+
+1. **Development**: Vite dev server resolves imports dynamically
+2. **Production**: Vite processes assets during build, generating hashed filenames
+3. **Import.meta.glob**: Ensures Vite tracks and bundles all MP3 files
+4. **Result**: Correct URLs in both environments
+
+### Data Organization
+
+**Menu Cards**:
+
+- Metadata extracted from `SBB_Metadaten.txt` files per menu
+- Organized by PPN (unique identifier)
+- Grouped by year with chronological sorting
+- Images linked via glob pattern matching
+
+**Music**:
+
+- CSV metadata parsing with character encoding fixes (German umlauts)
+- Manual categorization based on folder structure (vocal/instrumental)
+- Dual-track structure (00000003.mp3 = Side A, 00000004.mp3 = Side B)
+- Chronological sorting by recording date
+
+### State Management
+
+- **Client-side routing**: Simple state-based navigation (Home ↔ About)
+- **Menu state**: Year filter, current menu index, view mode (browse/view), page index
+- **Music state**: Category filter, current track, play/pause state
+- **Audio reference**: React `useRef` for HTML5 audio element control
+
+### Responsive Design
+
+- **Mobile-first**: TailwindCSS utility classes
+- **Breakpoints**: Single column on mobile, two-column grid on desktop (`lg:grid-cols-2`)
+- **Flexbox layouts**: Equal-height sections with `flex-col` and `flex-1`
+- **Scrollable content**: Overflow handling for long lists and menu pages
+
+## Installation
+
+```bash
+# Clone repository
+git clone [repository-url]
+cd menu-music-mix
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Development Scripts
+
+```bash
+npm run dev      # Start Vite dev server (http://localhost:5173)
+npm run build    # Build for production (output: dist/)
+npm run preview  # Preview production build locally
+npm run lint     # Run ESLint
+```
+
+## Asset Processing
+
+### Converting TIF Images (if needed)
+
+```bash
+npm install sharp --save-dev
+# Create convert script and run batch conversion
+node convert-tif-to-jpg.js
+```
+
+### Audio File Structure
+
+```
+src/assets/mp3/
+├── vocal/
+│   ├── [PPN]/
+│   │   ├── 00000003.mp3  # Side A
+│   │   └── 00000004.mp3  # Side B
+└── instrumental/
+    └── [PPN]/
+        ├── 00000003.mp3
+        └── 00000004.mp3
+```
+
+## Data Sources
+
+- **Menu Cards**: [Berlin State Library - On the Menu](https://lab.sbb.berlin/on-the-menu/)
+
+  - License: Public Domain Mark 1.0
+  - Format: JPG images + metadata (TXT)
+
+- **Music**: [Berlin State Library - Echoes of Berlin: 78s](https://lab.sbb.berlin/echoes-of-berlin-78s/)
+  - License: CC BY-SA 4.0
+  - Format: MP3 audio + metadata (CSV)
+
+## Browser Compatibility
+
+- Modern browsers with ES2015+ support
+- HTML5 audio support required
+- Tested on: Chrome, Firefox, Safari, Edge
+
+## Known Limitations
+
+- TIF images converted to JPG (minor quality trade-off for compatibility)
+- Audio files must be pre-loaded (no streaming)
+- Large asset folder (~3GB+ with all menu images)
+- Client-side data parsing (no backend API)
+
+## Performance Optimizations
+
+- Eager loading of assets via `import.meta.glob`
+- Lazy rendering with conditional components
+- Optimized JPG compression (90% quality)
+- Minimal bundle size with tree-shaking
+- CSS purging via TailwindCSS
+
+## Future Enhancements
+
+- Search functionality for menus and music
+- Advanced filtering (by location, composer, event type)
+- Playlist creation and download
+- Display original shellac record label images
+- Full-text search in menu content
+- Integration with Berlin State Library catalog
+
+## Contributing
+
+This project was created during a hackathon. For questions or contributions, please contact the team members listed in the About page.
+
+## Team
+
+Bishnu Prashad Bhatta, Timothée Garnault, Tanmayee Mulay, Angelina Riemann, Maxim Roozen, Ruth Sander, Media Younis
+
+## Acknowledgments
+
+- **Staatsbibliothek zu Berlin – Preußischer Kulturbesitz** for providing the datasets
+- **culture.explore(data)** hackathon organizers
+- Berlin State Library's digitization and metadata teams
+
+## License
+
+Code: [Add your license here]  
+Data: See individual dataset licenses above
+
+---
+
+**Built with ❤️ during culture.explore(data) hackathon, October 2025**
