@@ -79,7 +79,7 @@ export default function MenuViewer() {
           className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         >
           <option value="all">All years ({allMenus.length} menus)</option>
-          {[...years].reverse().map((year) => (
+          {years.map((year) => (
             <option key={year} value={year}>
               {year} ({menusByYear[year].length} menu
               {menusByYear[year].length > 1 ? "s" : ""})
@@ -108,7 +108,7 @@ export default function MenuViewer() {
                 {currentMenu.title}
               </p>
             </h4>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-700 underline">
               Date: {currentMenu.fullDate}
             </p>
             <p className="text-xs text-gray-500 mt-1">
@@ -124,7 +124,7 @@ export default function MenuViewer() {
               disabled={currentMenuIndex === 0}
               className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              ← Back
+              ← Previous
             </button>
             <button
               onClick={handleViewMenu}
@@ -137,12 +137,12 @@ export default function MenuViewer() {
               disabled={currentMenuIndex === displayedMenus.length - 1}
               className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              Next menu →
+              Next →
             </button>
           </div>
 
           {/* Menu Counter */}
-          <div className="text-center text-sm text-gray-500 mt-2 underline">
+          <div className="text-center text-base text-gray-600 mt-2 underline">
             Menu {currentMenuIndex + 1} of {displayedMenus.length}
           </div>
         </div>

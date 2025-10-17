@@ -67,11 +67,11 @@ export function parseMenuData() {
     }
   }
 
-  // Sort by year (most recent first)
+  // Sort by year (oldest first)
   menus.sort((a, b) => {
     if (a.year === "Unknown") return 1;
     if (b.year === "Unknown") return -1;
-    return b.year.localeCompare(a.year);
+    return a.year.localeCompare(b.year);
   });
 
   return menus;
@@ -95,5 +95,5 @@ export function getYears() {
   const menusByYear = getMenusByYear();
   return Object.keys(menusByYear)
     .filter((year) => year !== "Unknown")
-    .sort((a, b) => b.localeCompare(a));
+    .sort((a, b) => a.localeCompare(b));
 }

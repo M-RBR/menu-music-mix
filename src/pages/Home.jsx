@@ -15,7 +15,7 @@ export default function Home({ onAboutClick }) {
             MENU-MUSIC-MIX
           </h1>
           <p className="text-center text-gray-600 mt-2 text-lg italic">
-            Tastes and sounds of Berlin, 1900-1914
+            Tastes and sounds of Berlin in the years 1900-1914
           </p>
           <span className="relative inline-block">
             <BadgeInfo
