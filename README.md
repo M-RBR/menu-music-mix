@@ -2,8 +2,6 @@
 
 A React web application that presents two interconnected datasets from the Berlin State Library: historical menu cards and early 20th-century shellac music recordings. Built during the culture.explore(data) hackathon at the Staatsbibliothek zu Berlin.
 
-🔗 **Live Demo**: [Deployed on Vercel]
-
 ## Tech Stack
 
 - **Frontend Framework**: React 19.1.1
@@ -37,13 +35,13 @@ src/
 
 ### Historical Menu Cards
 
-- **2,403 digitized menu cards** from Berlin State Library's Menükarten-Sammlung
+- **Digitized menu cards** from Berlin State Library's Menükarten-Sammlung
 - Browse by year with dropdown filtering
 - Two-mode viewing:
   - **Browse mode**: Preview first page, navigate between menus
   - **View mode**: Full page-by-page navigation for each menu
 - Chronological navigation with Previous/Next controls
-- Metadata display: title, date, location, page count
+- Metadata display: title, date, page count
 
 ### Music Collection
 
@@ -51,7 +49,7 @@ src/
 - Categorized as vocal (26) or instrumental (8)
 - Dual-sided playback (Side A & B) mimicking physical records
 - Filter by category (All/Vocal/Instrumental)
-- Metadata display: title, composer, date, performance notes
+- Metadata display: title, date
 - Active track indication with play/pause controls
 
 ## Technical Highlights
@@ -205,55 +203,11 @@ src/assets/mp3/
   - License: CC BY-SA 4.0
   - Format: MP3 audio + metadata (CSV)
 
-## Browser Compatibility
-
-- Modern browsers with ES2015+ support
-- HTML5 audio support required
-- Tested on: Chrome, Firefox, Safari, Edge
-
-## Known Limitations
-
-- TIF images converted to JPG (minor quality trade-off for compatibility)
-- Audio files must be pre-loaded (no streaming)
-- Large asset folder (~3GB+ with all menu images)
-- Client-side data parsing (no backend API)
-
-## Performance Optimizations
-
-- Eager loading of assets via `import.meta.glob`
-- Lazy rendering with conditional components
-- Optimized JPG compression (90% quality)
-- Minimal bundle size with tree-shaking
-- CSS purging via TailwindCSS
-
-## Future Enhancements
-
-- Search functionality for menus and music
-- Advanced filtering (by location, composer, event type)
-- Playlist creation and download
-- Display original shellac record label images
-- Full-text search in menu content
-- Integration with Berlin State Library catalog
-
 ## Contributing
 
 This project was created during a hackathon. For questions or contributions, please contact the team members listed in the About page.
-
-## Team
-
-Bishnu Prashad Bhatta, Timothée Garnault, Tanmayee Mulay, Angelina Riemann, Maxim Roozen, Ruth Sander, Media Younis
 
 ## Acknowledgments
 
 - **Staatsbibliothek zu Berlin – Preußischer Kulturbesitz** for providing the datasets
 - **culture.explore(data)** hackathon organizers
-- Berlin State Library's digitization and metadata teams
-
-## License
-
-Code: [Add your license here]  
-Data: See individual dataset licenses above
-
----
-
-**Built with ❤️ during culture.explore(data) hackathon, October 2025**
