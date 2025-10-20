@@ -1,5 +1,5 @@
 import { ArrowLeft } from "lucide-react";
-import ViewofBerlin1910 from "../assets/image/00000001.jpg";
+import ViewofBerlin1910 from "../assets/About page image/00000001.jpg";
 
 export default function About({ onBack }) {
   return (
@@ -51,8 +51,8 @@ export default function About({ onBack }) {
                 design, chose to examine two seemingly disparate datasets rather
                 than focusing on a single one. The objective was to identify
                 conceptual and historical connections between them. This
-                approach led to a comparative analysis of German menus and songs
-                produced in Berlin between 1900 and 1914.
+                approach led to a comparative analysis of menus and songs in
+                German produced in Berlin between 1900 and 1914.
               </p>
               <p className="text-gray-700 leading-relaxed mb-3">
                 The website presents a curated selection of static data that was
@@ -68,8 +68,8 @@ export default function About({ onBack }) {
                 Dataset 1: Historical Menu Cards
               </h3>
               <p className="text-gray-700 leading-relaxed mb-3">
-                The menu card collection features digitized historical menus
-                from the Berlin State Library's{" "}
+                The menu card collection features 2,403 digitized historical
+                menus from the Berlin State Library's{" "}
                 <span className="italic">Menükarten-Sammlung</span>, spanning
                 from approximately 1880 to 1913. These cards offer a rich visual
                 and cultural archive of dining culture across Europe during the
@@ -150,15 +150,13 @@ export default function About({ onBack }) {
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 Licenses & Credits
               </h3>
-              <p className="text-gray-700 leading-relaxed mb-2">
-                <strong>Menu Cards:</strong> Public Domain Mark 1.0
-              </p>
               <p className="text-gray-700 leading-relaxed mb-3">
                 <strong>Music Recordings:</strong> CC BY-SA 4.0
               </p>
               <p className="text-gray-700 leading-relaxed">
                 All materials are provided by the
                 <strong>
+                  {" "}
                   Staatsbibliothek zu Berlin – Preußischer Kulturbesitz
                 </strong>{" "}
                 (Berlin State Library).
