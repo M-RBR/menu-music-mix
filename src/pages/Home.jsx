@@ -47,7 +47,7 @@ export default function Home({ onAboutClick }) {
                 className="mt-2 text-lg italic"
                 style={{ color: "var(--color-sepia)" }}
               >
-                Tastes and sounds of Berlin in the years 1900-1914
+                Tastes and sounds of Berlin between the years 1900-1914
               </p>
             </div>
 
