@@ -60,7 +60,10 @@ export default function MenuViewer() {
 
   if (!currentMenu) {
     return (
-      <div className="text-center text-gray-500 py-8">
+      <div
+        className="text-center py-8"
+        style={{ color: "var(--color-sepia)", opacity: 0.7 }}
+      >
         No menus available for this selection
       </div>
     );
@@ -70,13 +73,21 @@ export default function MenuViewer() {
     <div>
       {/* Year Filter */}
       <div className="mb-4">
-        <label className="block text-base font-medium text-gray-900 mb-2">
+        <label
+          className="block text-base font-medium mb-2"
+          style={{ color: "var(--color-sepia)" }}
+        >
           Filter by Year:
         </label>
         <select
           value={selectedYear}
           onChange={(e) => setSelectedYear(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          className="w-full px-3 py-2 rounded"
+          style={{
+            border: "2px solid var(--color-border)",
+            backgroundColor: "var(--color-ivory)",
+            color: "var(--color-sepia)",
+          }}
         >
           <option value="all">All years ({allMenus.length} menus)</option>
           {years.map((year) => (
@@ -92,26 +103,45 @@ export default function MenuViewer() {
       {viewMode === "browse" && (
         <div>
           {/* Menu Preview */}
-          <div className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden mb-4 h-64">
+          <div
+            className="rounded overflow-hidden mb-4 h-64"
+            style={{
+              backgroundColor: "var(--color-ivory)",
+              border: "2px solid var(--color-gold)",
+            }}
+          >
             <img
               src={currentMenu.images[0].url}
               alt={`${currentMenu.title} - First page`}
-              className="w-full h-full object-contain bg-gray-50"
+              className="w-full h-full object-contain"
+              style={{ backgroundColor: "var(--color-warm-gray)" }}
             />
           </div>
 
           {/* Menu Info */}
           <div className="mb-4">
-            <h4 className="flex justify-center font-medium text-gray-900 ">
+            <h4
+              className="flex justify-center font-medium"
+              style={{ color: "var(--color-sepia)" }}
+            >
               Title:{" "}
-              <p className="font-medium text-gray-900 italic ml-2">
+              <p
+                className="font-medium italic ml-2"
+                style={{ color: "var(--color-burgundy)" }}
+              >
                 {currentMenu.title}
               </p>
             </h4>
-            <p className="text-sm text-gray-700 underline">
+            <p
+              className="text-sm underline"
+              style={{ color: "var(--color-sepia)" }}
+            >
               Date: {currentMenu.fullDate}
             </p>
-            <p className="text-xs text-gray-500 mt-1">
+            <p
+              className="text-xs mt-1"
+              style={{ color: "var(--color-sepia)", opacity: 0.7 }}
+            >
               {currentMenu.images.length} page
               {currentMenu.images.length > 1 ? "s" : ""}
             </p>
@@ -122,27 +152,45 @@ export default function MenuViewer() {
             <button
               onClick={handlePrevMenu}
               disabled={currentMenuIndex === 0}
-              className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              style={{
+                backgroundColor: "var(--color-cream)",
+                color: "var(--color-sepia)",
+                border: "2px solid var(--color-sepia)",
+              }}
             >
               ← Previous
             </button>
             <button
               onClick={handleViewMenu}
-              className="flex-1 px-4 py-2 bg-blue-600 text-black border border-black rounded-lg hover:bg-blue-700 transition-colors"
+              className="flex-1 px-4 py-2 rounded transition-all"
+              style={{
+                backgroundColor: "var(--color-burgundy)",
+                color: "var(--color-ivory)",
+                border: "2px solid var(--color-burgundy)",
+              }}
             >
-              View all pages of this menu
+              View all pages
             </button>
             <button
               onClick={handleNextMenu}
               disabled={currentMenuIndex === displayedMenus.length - 1}
-              className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              style={{
+                backgroundColor: "var(--color-cream)",
+                color: "var(--color-sepia)",
+                border: "2px solid var(--color-sepia)",
+              }}
             >
               Next →
             </button>
           </div>
 
           {/* Menu Counter */}
-          <div className="text-center text-base text-gray-600 mt-2 underline">
+          <div
+            className="text-center text-base mt-2 underline"
+            style={{ color: "var(--color-sepia)" }}
+          >
             Menu {currentMenuIndex + 1} of {displayedMenus.length}
           </div>
         </div>
@@ -152,26 +200,39 @@ export default function MenuViewer() {
       {viewMode === "view" && (
         <div>
           {/* Full Page View */}
-          <div className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden mb-4 h-96">
+          <div
+            className="rounded overflow-hidden mb-4 h-96"
+            style={{
+              backgroundColor: "var(--color-ivory)",
+              border: "2px solid var(--color-gold)",
+            }}
+          >
             <img
               src={currentMenu.images[currentPageIndex].url}
               alt={`${currentMenu.title} - Page ${currentPageIndex + 1}`}
-              className="w-full h-full object-contain bg-gray-50"
+              className="w-full h-full object-contain"
+              style={{ backgroundColor: "var(--color-warm-gray)" }}
             />
           </div>
 
           {/* Page Info */}
           <div className="mb-4">
-            <h4 className="font-medium text-gray-900">
+            <h4 className="font-medium" style={{ color: "var(--color-sepia)" }}>
               Title:{" "}
-              <p className="font-medium text-gray-900 italic">
+              <p
+                className="font-medium italic"
+                style={{ color: "var(--color-burgundy)" }}
+              >
                 {currentMenu.title}
               </p>
             </h4>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm" style={{ color: "var(--color-sepia)" }}>
               Date: {currentMenu.fullDate}
             </p>
-            <p className="text-xs text-gray-500 mt-1">
+            <p
+              className="text-xs mt-1"
+              style={{ color: "var(--color-sepia)", opacity: 0.7 }}
+            >
               Page {currentPageIndex + 1} of {currentMenu.images.length}
             </p>
           </div>
@@ -181,14 +242,24 @@ export default function MenuViewer() {
             <button
               onClick={handlePrevPage}
               disabled={currentPageIndex === 0}
-              className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              style={{
+                backgroundColor: "var(--color-cream)",
+                color: "var(--color-sepia)",
+                border: "2px solid var(--color-sepia)",
+              }}
             >
               ← Previous Page
             </button>
             <button
               onClick={handleNextPage}
               disabled={currentPageIndex === currentMenu.images.length - 1}
-              className="flex-1 px-4 py-2 bg-gray-200 text-black border border-black rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex-1 px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              style={{
+                backgroundColor: "var(--color-cream)",
+                color: "var(--color-sepia)",
+                border: "2px solid var(--color-sepia)",
+              }}
             >
               Next Page →
             </button>
@@ -197,7 +268,12 @@ export default function MenuViewer() {
           {/* Close Button */}
           <button
             onClick={handleCloseView}
-            className="w-full px-4 py-2 bg-blue-600 text-black border border-black rounded-lg hover:bg-blue-700 transition-colors"
+            className="w-full px-4 py-2 rounded transition-all"
+            style={{
+              backgroundColor: "var(--color-burgundy)",
+              color: "var(--color-ivory)",
+              border: "2px solid var(--color-burgundy)",
+            }}
           >
             Close & Browse Other Menus
           </button>

@@ -47,34 +47,61 @@ export default function MusicPlayer() {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex gap-4 mb-4 justify-center">
+      <div className="flex gap-4 mb-4 justify-center flex-wrap">
         <button
           onClick={() => setFilter("all")}
-          className={`px-4 py-2 border rounded-lg transition-colors ${
+          className="px-4 py-2 border rounded transition-all"
+          style={
             filter === "all"
-              ? "bg-green-600 text-black border-blue-500"
-              : "bg-gray-200 text-black border-black hover:bg-gray-300"
-          }`}
+              ? {
+                  backgroundColor: "var(--color-burgundy)",
+                  color: "var(--color-ivory)",
+                  border: "2px solid var(--color-burgundy)",
+                }
+              : {
+                  backgroundColor: "var(--color-cream)",
+                  color: "var(--color-sepia)",
+                  border: "2px solid var(--color-sepia)",
+                }
+          }
         >
           All ({songs.length})
         </button>
         <button
           onClick={() => setFilter("vocal")}
-          className={`px-4 py-2 border rounded-lg transition-colors ${
+          className="px-4 py-2 border rounded transition-all"
+          style={
             filter === "vocal"
-              ? "bg-green-600 text-black border-blue-500"
-              : "bg-gray-200 text-black border-black hover:bg-gray-300"
-          }`}
+              ? {
+                  backgroundColor: "var(--color-burgundy)",
+                  color: "var(--color-ivory)",
+                  border: "2px solid var(--color-burgundy)",
+                }
+              : {
+                  backgroundColor: "var(--color-cream)",
+                  color: "var(--color-sepia)",
+                  border: "2px solid var(--color-sepia)",
+                }
+          }
         >
           Vocal ({songs.filter((s) => s.category === "vocal").length})
         </button>
         <button
           onClick={() => setFilter("instrumental")}
-          className={`px-4 py-2 border rounded-lg transition-colors ${
+          className="px-4 py-2 border rounded transition-all"
+          style={
             filter === "instrumental"
-              ? "bg-green-600 text-black border-blue-500"
-              : "bg-gray-200 text-black border-black hover:bg-gray-300"
-          }`}
+              ? {
+                  backgroundColor: "var(--color-burgundy)",
+                  color: "var(--color-ivory)",
+                  border: "2px solid var(--color-burgundy)",
+                }
+              : {
+                  backgroundColor: "var(--color-cream)",
+                  color: "var(--color-sepia)",
+                  border: "2px solid var(--color-sepia)",
+                }
+          }
         >
           Instrumental (
           {songs.filter((s) => s.category === "instrumental").length})
@@ -85,16 +112,33 @@ export default function MusicPlayer() {
         {filteredSongs.map((song) => (
           <div
             key={song.ppn}
-            className="border border-gray-200 rounded-lg p-3 hover:bg-gray-50 transition-colors"
+            className="rounded p-3 transition-all"
+            style={{
+              border: "2px solid var(--color-border)",
+              backgroundColor: "var(--color-ivory)",
+            }}
           >
             <div className="flex items-start justify-between">
               <div className="flex-1">
-                <h4 className="font-medium text-gray-900">{song.title}</h4>
-                <p className="text-sm text-gray-600 italic">
+                <h4
+                  className="font-medium"
+                  style={{ color: "var(--color-sepia)" }}
+                >
+                  {song.title}
+                </h4>
+                <p
+                  className="text-sm italic"
+                  style={{ color: "var(--color-sepia)", opacity: 0.8 }}
+                >
                   Date: {song.date}
                 </p>
                 {song.notes && (
-                  <p className="text-xs text-gray-500 mt-1">{song.notes}</p>
+                  <p
+                    className="text-xs mt-1"
+                    style={{ color: "var(--color-sepia)", opacity: 0.7 }}
+                  >
+                    {song.notes}
+                  </p>
                 )}
               </div>
               <div className="flex gap-2 ml-4">
@@ -106,11 +150,20 @@ export default function MusicPlayer() {
                     <button
                       key={track.side}
                       onClick={() => playTrack(song, track)}
-                      className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                      className="px-3 py-1 rounded text-sm font-medium transition-all"
+                      style={
                         isCurrentTrack && isPlaying
-                          ? "bg-green-600 text-black"
-                          : "bg-gray-200 text-black hover:bg-gray-300 border border-black"
-                      }`}
+                          ? {
+                              backgroundColor: "var(--color-teal)",
+                              color: "var(--color-ivory)",
+                              border: "2px solid var(--color-teal)",
+                            }
+                          : {
+                              backgroundColor: "var(--color-cream)",
+                              color: "var(--color-sepia)",
+                              border: "2px solid var(--color-sepia)",
+                            }
+                      }
                       title={`Play side ${track.side}`}
                     >
                       {isCurrentTrack && isPlaying ? "⏸" : "▶"} {track.side}

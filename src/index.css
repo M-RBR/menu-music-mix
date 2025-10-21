@@ -1,13 +1,23 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap");
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --color-cream: #f5f1e8;
+  --color-ivory: #fefcf5;
+  --color-sepia: #2c2416;
+  --color-burgundy: #8b2635;
+  --color-gold: #b8936e;
+  --color-teal: #2c5f5f;
+  --color-warm-gray: #d4cfc4;
+  --color-border: #c8bfb0;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  font-family: "Crimson Text", Georgia, serif;
+  line-height: 1.7;
+  font-weight: 400;
+  font-size: 18px;
+
+  color: var(--color-sepia);
+  background-color: var(--color-cream);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,13 +25,40 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 2.8em;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.5em;
+  line-height: 1.4;
+}
+
 a {
-  font-weight: 500;
-  color: #646cff;
+  font-weight: 600;
+  color: var(--color-teal);
   text-decoration: inherit;
+  transition: color 0.3s ease;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--color-burgundy);
 }
 
 body {
@@ -30,41 +67,25 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #303030;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  background-color: var(--color-cream);
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  font-weight: 600;
+  font-family: "Crimson Text", Georgia, serif;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.3s ease;
+  border: 2px solid var(--color-sepia);
 }
 button:hover {
-  border-color: #646cff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(44, 36, 22, 0.15);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  outline: 3px solid var(--color-burgundy);
+  outline-offset: 2px;
 }
