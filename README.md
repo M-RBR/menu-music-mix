@@ -207,8 +207,9 @@ src/assets/mp3/
 
 This project was created during a hackathon. For questions or contributions, please contact the team members listed in the About page.
 
-## License
+## Project license
 
+CC BY 4.0 International
 
 ## Acknowledgments
 
