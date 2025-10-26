@@ -207,6 +207,9 @@ src/assets/mp3/
 
 This project was created during a hackathon. For questions or contributions, please contact the team members listed in the About page.
 
+## License
+
+
 ## Acknowledgments
 
 - **Staatsbibliothek zu Berlin – Preußischer Kulturbesitz** for providing the datasets
