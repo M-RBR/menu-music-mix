@@ -196,6 +196,7 @@ src/assets/mp3/
 
 - **Menu Cards**: [Berlin State Library - On the Menu](https://lab.sbb.berlin/on-the-menu/)
 
+  - License: CC BY 4.0 International
   - Format: JPG images + metadata (TXT)
 
 - **Music**: [Berlin State Library - Echoes of Berlin: 78s](https://lab.sbb.berlin/echoes-of-berlin-78s/)
